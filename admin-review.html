@@ -1,0 +1,19 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+header('Content-Type: application/json');
+require_once 'connection.php';
+// 查詢評論總數
+$sql = "SELECT COUNT(*) as total FROM reviews";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_assoc($result);
+$value = $row ? (int)$row['total'] : 0;
+// 假設進度條百分比（可根據實際需求計算）
+$progress = $value > 0 ? min(100, round($value / 1000 * 100)) : 0;
+echo json_encode([
+    'value' => $value,
+    'progress' => $progress
+]);
+exit; // 確保 PHP 腳本在輸出 JSON 後停止執行
+?>

@@ -1,0 +1,589 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  padding-top: 40px; /* sesuaikan dengan tinggi announcement bar */
+  transition: padding-top 0.3s ease;
+}
+
+.announcement-bar {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 9px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.announcement-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 9px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 100px;
+  justify-content: space-between;
+
+  overflow: visible; /*ini untuk  overflow saat header expand*/
+  max-height: 80px; /* tinggi default */
+
+  background-color: rgba(255, 255, 255, 0.6); /* semi-transparent */
+  backdrop-filter: none;
+  transition: all 0.6s ease; /* smooth semua perubahan */
+  z-index: 10;
+
+  position: relative;
+}
+
+.header.expand {
+  max-height: 240px; /* tinggi saat cart diklik */
+  padding-bottom: 250px; /* Tambahan ruang ke bawah */
+  padding-top: 45px;
+  backdrop-filter: blur(10px); /* ⬅️ efek blur aktif */
+  background-color: rgba(255, 255, 255, 0.8); /* lebih terang */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.cart-content {
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0 100px;
+  position: relative;
+  z-index: 9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.cart-content.active {
+  max-height: 300px; /* atur sesuai tinggi konten */
+  opacity: 1;
+  padding: 30px 100px;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  text-decoration: none;
+}
+.logout-btn:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  overflow: visible;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  visibility: hidden;
+  margin-top: 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  background: #d9d9d9;
+  width: 450%;
+}
+
+.dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+}
+
+.dropdown-menu a:hover {
+  color: #000;
+  font-weight: 500;
+}
+
+.dropdown.open .dropdown-menu {
+  display: flex;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #efefef;
+  border-radius: 24px;
+  padding: 12px 16px;
+  width: 689px;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  margin-left: 12px;
+  width: 100%;
+  font-size: 16px;
+  color: #00000066;
+  outline: none;
+}
+
+#search-suggestions {
+  top: 100%;
+  left: 0;
+  border: 1px solid #00000019;
+  border-radius: 8px;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 0;
+  margin-top: 10px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: none;
+}
+
+.cart-icons {
+  display: flex;
+  gap: 14px;
+}
+
+
+
+.divider {
+    height: 1px;
+    background-color: #00000019;
+    width: 100%;
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #efefef;
+  padding: 30px 100px 30px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 51px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.footer-description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #00000099;
+  max-width: 248px;
+  margin-bottom: 35px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 0.7;
+}
+
+.footer-column {
+  margin-right: 60px;
+}
+
+.footer-column:last-child {
+  margin-right: 0;
+}
+
+.footer-heading {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.footer-link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #00000099;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #000000;
+}
+
+.footer-divider {
+  height: 1px;
+  background-color: #00000019;
+  margin: 40px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #00000099;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 12px;
+}
+
+.payment-method {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 46px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 4px rgba(183, 183, 183, 0.08);
+}
+@media (max-width: 1200px) {
+  .header,
+  .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .search-bar {
+    width: 500px;
+    position: relative;
+  }
+
+  .footer-top {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-bar {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .search-bar {
+    width: 200px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.about-section {
+  background: #ffffff;
+  margin-bottom: 30px;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+}
+
+.about-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #ff0000, #00aeff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-section p {
+  font-size: 16px;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Animation sequence */
+.about-section:nth-child(2) { animation-delay: 0.1s; }
+.about-section:nth-child(3) { animation-delay: 0.2s; }
+.about-section:nth-child(4) { animation-delay: 0.3s; }
+.about-section:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #cc0000, #190fa5); /* You can change the colors */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* Store Location Specific Styles */
+
+/* General container for the store locations */
+.store-location-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Stack on small screens */
+  gap: 30px;
+  /* Gap between location cards */
+  padding: 60px 20px;
+  /* More padding */
+  max-width: 2000px;
+  /* Increased max width for wider cards */
+  margin: 0 auto;
+  justify-items: center; /* Center cards horizontally in grid cells */
+}
+
+/* Individual location card styling */
+.location-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  /* Slightly more rounded corners */
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  /* More prominent shadow */
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth hover effects */
+  min-height: 500px;
+  /* Increased height for wider cards */
+  width: 100%;
+  max-width: 1500px; /* Make each card longer horizontally */
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  /* Lift on hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Map iframe styling */
+.location-card iframe {
+  width: 100%;
+  height: 300px;
+  /* Increased map height for wider cards */
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Details section within the card */
+.location-details {
+  padding: 25px;
+  /* Increased padding for wider cards */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-details h2 {
+  font-size: 22px;
+  /* Larger heading for wider cards */
+  font-weight: 700;
+  margin-bottom: 18px;
+  /* Increased spacing */
+  color: #2c3e50;
+  /* Darker, more professional color */
+  text-align: center;
+}
+
+.location-details p {
+  font-size: 15px;
+  /* Larger text for wider cards */
+  margin-bottom: 8px;
+  /* More spacing */
+  color: #34495e;
+  /* Softer text color */
+  line-height: 1.6;
+}
+
+.location-details p strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Remove horizontal layout - keeping vertical for 2x2 grid */
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .store-location-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2x2 grid on medium screens and up */
+    gap: 40px;
+    /* Increased gap for wider cards */
+    justify-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .store-location-container {
+    grid-template-columns: repeat(2, minmax(700px, 1fr));
+    /* Keep 2x2 grid on large screens */
+    gap: 50px;
+    /* Even more gap for larger screens */
+    place-content: center;
+  }
+  
+  .location-card {
+    min-height: 550px;
+    /* Taller cards on larger screens */
+  }
+  
+  .location-card iframe {
+    height: 350px;
+    /* Larger map on bigger screens */
+  }
+  
+  .location-details {
+    padding: 30px;
+    /* More padding on larger screens */
+  }
+  
+  .location-details h2 {
+    font-size: 24px;
+    /* Larger heading on bigger screens */
+    margin-bottom: 20px;
+  }
+  
+  .location-details p {
+    font-size: 16px;
+    /* Larger text on bigger screens */
+    margin-bottom: 10px;
+  }
+}

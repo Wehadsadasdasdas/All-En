@@ -1,0 +1,52 @@
+<?php
+session_start();
+require_once "connection.php";
+
+header('Content-Type: application/json');
+
+// Check if all required data is present
+if (!isset($_POST['order_id']) || !isset($_POST['refund_reason']) || !isset($_POST['proof_link'])) {
+    echo json_encode(['success' => false, 'message' => 'Missing required data']);
+    exit;
+}
+
+$order_id = $_POST['order_id'];
+$reason = $_POST['refund_reason'];
+$proof_link = $_POST['proof_link'];
+
+try {
+    // Begin transaction
+    $link->begin_transaction();
+
+    // Insert into refund table
+    $query = "INSERT INTO refund (reason, refund_proof, status_id, date) VALUES (?, ?, 1, CURRENT_TIMESTAMP)";
+    $stmt = $link->prepare($query);
+    $stmt->bind_param("ss", $reason, $proof_link);
+    
+    if (!$stmt->execute()) {
+        throw new Exception("Failed to insert refund record: " . $stmt->error);
+    }
+    
+    $refund_id = $link->insert_id;
+
+    // Update orders table
+    $query = "UPDATE orders SET refund_id = ? WHERE id = ?";
+    $stmt = $link->prepare($query);
+    $stmt->bind_param("ii", $refund_id, $order_id);
+    
+    if (!$stmt->execute()) {
+        throw new Exception("Failed to update order: " . $stmt->error);
+    }
+
+    // If everything is successful, commit the transaction
+    $link->commit();
+    
+    echo json_encode(['success' => true]);
+
+} catch (Exception $e) {
+    // On error, rollback changes
+    $link->rollback();
+    
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+}
+?>

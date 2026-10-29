@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+<div class="container">
+    <aside>
+
+        <div class="top">
+            <div class="logo">
+                <h2> <span class="danger">All-En</span> </h2>
+            </div>
+            <div class="close" id="close_btn">
+            <span class="material-symbols-sharp">
+              close
+              </span>
+            </div>
+        </div>
+        <!-- end top -->
+        <div class="sidebar">
+
+            <a href="index.html">
+                <span class="material-symbols-sharp">grid_view </span>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="admin-payment.html">
+                <span class="material-symbols-sharp">credit_card </span>
+                <h3>Payment</h3>
+            </a>
+            <a href="admin-delivery.html">
+                <span class="material-symbols-sharp">local_shipping </span>
+                <h3>Delivery</h3>
+            </a>
+            <a href="admin-product.html" class="active">
+                <span class="material-symbols-sharp">shopping_bag </span>
+                <h3>Product</h3>
+            </a>
+            <a href="admin-discount.html">
+                <span class="material-symbols-sharp">percent </span>
+                <h3>Discount_code</h3>
+            </a>
+            <a href="admin-review.html">
+                <span class="material-symbols-sharp">star_rate </span>
+                <h3>Review</h3>
+                <span class="msg_count" id="#">14</span>
+            </a>
+            <a href="admin-warranty.html">
+                <span class="material-symbols-sharp">shield_watch </span>
+                <h3>Warranty</h3>
+            </a>
+            <a href="admin-refund.html">
+                <span class="material-symbols-sharp">money_off </span>
+                <h3>Refund</h3>
+            </a>
+
+            <a href="#.html">
+                <span class="material-symbols-sharp">logout </span>
+                <h3>Log out</h3>
+            </a>
+
+        </div>
+
+    </aside>
+    <!-- --------------
+      end asid
+    -------------------- -->
+
+    <!-- --------------
+      start main part
+    --------------- -->
+
+    <main>
+        <!-- start seling --------------------------------------------------------------------------------------------------------------->
+
+        <div class="recent_order">
+            <h2>Product</h2>
+        </div>
+
+        <!---
+        <div class="product">
+            <div class="image-crop">
+            <img src="" alt="Product Image">
+            <div class="middle">
+                <div class="left">
+                    <h3>Stock: ${product.stock}</h3>
+                    <h1>${product.id}</h1>
+                </div>
+            </div>
+            <small>${product.price}</small>
+            </div>
+            <div class="image-crop">
+                <img src="" alt="Product Image">
+                <div class="middle">
+                    <div class="left">
+                        <h3>Stock: ${product.stock}</h3>
+                        <h1>${product.id}</h1>
+                    </div>
+                </div>
+                <small>${product.price}</small>
+            </div>
+        </div>
+        -->
+
+        <div class="product">
+            <div class="boarder-product">
+
+                    <span id="add_product" class="material-symbols-sharp">add</span>
+
+
+
+
+
+
+
+
+
+                <!-- Modal Popup -->
+                <div id="productModal" class="modal-product hidden-product">
+                    <div class="modal-content-product">
+                        <h2>Add Product</h2>
+                        <form id="productForm">
+                            <label>Product ID:
+                                <input type="text" name="product_id" required />
+                            </label>
+
+                            <label>Product Name:
+                                <input type="text" name="product_name" required />
+                            </label>
+
+                            <label>Category:
+                                <select name="category" required>
+                                    <option value="">--Select Category--</option>
+                                    <option value="luggage">Luggage</option>
+                                    <option value="luggage accessories">Luggage Accessories</option>
+                                    <option value="travel accessories">Travel Accessories</option>
+                                </select>
+                            </label>
+
+                            <label>Image Link:
+                                <input type="text" name="image_link" />
+                            </label>
+
+                            <label>Description:
+                                <textarea name="description_link"></textarea>
+                            </label>
+
+                            <div id="sizesContainer">
+                                <h3>Sizes</h3>
+                                <button type="button" onclick="addSize()">+ Add Size</button>
+                            </div>
+
+                            <div class="modal-actions-product">
+                                <button type="button" id="cancelProductBtn">Cancel</button>
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div style="margin-left: 50px; margin-bottom: 10px;">
+                        <div class="category">
+                            <div class="dropdown">
+                                <input type="text" id="category" placeholder="All" readonly>
+                                <p>category</p>
+                                <div class="choices" id="choiceList-category">
+                                    <div class="choice">All</div>
+                                    <div class="choice">Luggage</div>
+                                    <div class="choice">Luggage Accessories</div>
+                                    <div class="choice">Travel Accessories</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category">
+                            <div class="dropdown">
+                                <input type="text" id="size" placeholder="All" readonly>
+                                <p>size</p>
+                                <div class="choices" id="choiceList-size">
+                                    <div class="choice">All</div>
+                                    <div class="choice"><21</div>
+                                    <div class="choice">21-24</div>
+                                    <div class="choice">25-28</div>
+                                    <div class="choice">>28</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category">
+                            <div class="dropdown">
+                                <input type="text" id="stock" placeholder="All" readonly>
+                                <p>stock</p>
+                                <div class="choices" id="choiceList-stock">
+                                    <div class="choice">All</div>
+                                    <div class="choice">0</div>
+                                    <div class="choice">1-200</div>
+                                    <div class="choice">201-500</div>
+                                    <div class="choice">>500</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category">
+                            <div class="dropdown">
+                                <input type="text" id="price" placeholder="All" readonly>
+                                <p>price</p>
+                                <div class="choices" id="choiceList-price">
+                                    <div class="choice">All</div>
+                                    <div class="choice">2000</div>
+                                    <div class="choice">2000-4999</div>
+                                    <div class="choice">5000-9999</div>
+                                    <div class="choice">>10000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="product"  id="productList"></div>
+
+
+        <div id="infoModal" class="product-popup">
+            <div class="modal-details">
+                <h2 id="modalTitle"></h2>
+                <h2 id="modalPrice"></h2>
+                <h2 id="modalStock"></h2>
+                <h2 id="modalDiscount"></h2>
+                <button onclick="closeModal()" class="close-button">Close</button>
+            </div>
+
+            <div class="modal-details-input">
+                <h2>Changed</h2>
+                <input type="number" class="input-number">
+                <input type="number" class="input-number">
+                <input type="number" class="input-number">
+            </div>
+
+            <div class="button-padding">
+
+                <!-- Example change buttons below image -->
+                <button class="change-button">Change</button>
+                <button class="change-button">Change</button>
+                <button class="change-button">Change</button>
+            </div>
+
+        </div>
+
+        <!-- Optional overlay -->
+        <div id="overlay" class="overlay" onclick="closeModal()"></div>
+
+
+        <!-- end insights --------------------------------------------------------------------------------------------------------------------------------------------->
+
+    </main>
+    <!------------------
+       end main
+      ------------------->
+
+    <!----------------
+      start right main
+    ---------------------->
+    <div class="right">
+
+        <div class="top">
+            <button id="menu_bar">
+                <span class="material-symbols-sharp">menu</span>
+            </button>
+
+            <div class="theme-toggler">
+                <span class="material-symbols-sharp active">light_mode</span>
+                <span class="material-symbols-sharp">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p><b>Babar</b></p>
+                    <p>Admin</p>
+                    <small class="text-muted"></small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/profile-1.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent_updates">
+            <h2>Recent Update</h2>
+            <div class="updates">
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="../images/profile-4.jpg" alt=""/>
+                    </div>
+                    <div class="message">
+                        <p><b>Babar</b> Recived his order of USB</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="../images/profile-3.jpg" alt=""/>
+                    </div>
+                    <div class="message">
+                        <p><b>Ali</b> Recived his order of USB</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="../images/profile-2.jpg" alt=""/>
+                    </div>
+                    <div class="message">
+                        <p><b>Ramzan</b> Recived his order of USB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<script src="../admin-dashboard.js"></script>
+<script>
+    const products = [
+        { id: 'A123', stock: 100, price: '$10.99', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'B456', stock: 50, price: '$19.99', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'C789', stock: 0, price: '$5.49', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'D321', stock: 75, price: '$12.00', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'E654', stock: 10, price: '$9.00', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'A123', stock: 100, price: '$10.99', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'B456', stock: 50, price: '$19.99', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'C789', stock: 0, price: '$5.49', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'D321', stock: 75, price: '$12.00', image: '../images/5303.jpg', discount: '10%' },
+        { id: 'E654', stock: 10, price: '$9.00', image: '../images/5303.jpg', discount: '10%' },
+    ];
+
+    const productList = document.getElementById('productList');
+
+    products.forEach(product => {
+        const div = document.createElement('div');
+        div.className = 'image-crop';
+        div.innerHTML = `
+        <img src="${product.image}" alt="Product Image">
+        <div class="middle">
+          <div class="left">
+            <h3>Stock: ${product.stock}</h3>
+            <h1>${product.id}</h1>
+          </div>
+        </div>
+        <small>${product.price}</small>
+      </div>
+    `;
+        div.addEventListener('click', () => showInfo(product));
+        productList.appendChild(div);
+    });
+
+    function showInfo(product) {
+        document.getElementById('modalTitle').textContent = `${product.id}`;
+        document.getElementById('modalStock').textContent = `Stock: ${product.stock}`;
+        document.getElementById('modalPrice').textContent = `Price: ${product.price}`;
+        document.getElementById('modalDiscount').textContent = `Discount: ${product.discount}`;
+        document.getElementById('infoModal').style.display = 'flex';
+        document.getElementById('overlay').style.display = 'flex';
+
+        // Save ID (for example, in localStorage or a variable)
+        localStorage.setItem('selectedProductId', product.id);
+        console.log('Saved ID:', product.id);
+    }
+
+    function closeModal() {
+        document.getElementById('infoModal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+
+
+    <!--
+
+    -->
+
+
+    const input = document.getElementById('category');
+    const choiceList = document.getElementById('choiceList-category');
+    const choices = choiceList.querySelectorAll('.choice');
+
+    input.addEventListener('click', () => {
+        choiceList.style.display = choiceList.style.display === 'block' ? 'none' : 'block';
+    });
+
+    choices.forEach(choice => {
+        choice.addEventListener('click', () => {
+            input.value = choice.textContent;
+            choiceList.style.display = 'none';
+        });
+    });
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            choiceList.style.display = 'none';
+        }
+    });
+
+
+
+
+    const input3 = document.getElementById('size');
+    const choiceList3 = document.getElementById('choiceList-size');
+    const choices3 = choiceList3.querySelectorAll('.choice');
+
+    input3.addEventListener('click', () => {
+        choiceList3.style.display = choiceList3.style.display === 'block' ? 'none' : 'block';
+    });
+
+    choices3.forEach(choice => {
+        choice.addEventListener('click', () => {
+            input3.value = choice.textContent;
+            choiceList3.style.display = 'none';
+        });
+    });
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            choiceList3.style.display = 'none';
+        }
+    });
+
+
+
+
+    const input1 = document.getElementById('stock');
+    const choiceList1 = document.getElementById('choiceList-stock');
+    const choices1 = choiceList1.querySelectorAll('.choice');
+
+    input1.addEventListener('click', () => {
+        choiceList1.style.display = choiceList1.style.display === 'block' ? 'none' : 'block';
+    });
+
+    choices1.forEach(choice => {
+        choice.addEventListener('click', () => {
+            input1.value = choice.textContent;
+            choiceList1.style.display = 'none';
+        });
+    });
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            choiceList1.style.display = 'none';
+        }
+    });
+
+
+
+ 
+ 
+
+
+    const input2 = document.getElementById('price');
+    const choiceList2 = document.getElementById('choiceList-price');
+    const choices2 = choiceList2.querySelectorAll('.choice');
+
+    input2.addEventListener('click', () => {
+        choiceList2.style.display = choiceList2.style.display === 'block' ? 'none' : 'block';
+    });
+
+    choices2.forEach(choice => {
+        choice.addEventListener('click', () => {
+            input1.value = choice.textContent;
+            choiceList2.style.display = 'none';
+        });
+    });
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            choiceList2.style.display = 'none';
+        }
+    });
+
+
+
+
+    const inputs = document.querySelectorAll('.input-number');
+    const changeButtons = document.querySelectorAll('.change-button');
+
+    const fields = ['price', 'stock', 'discount']; // Order matches buttons and inputs
+
+    changeButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const inputValue = inputs[index].value;
+            if (inputValue === '') {
+                alert('Please enter a value.');
+                return;
+            }
+
+            const selectedId = localStorage.getItem('selectedProductId'); // Assuming ID is saved here
+            const product = products.find(p => p.id === selectedId);
+
+            if (product) {
+                if (fields[index] === 'price') {
+                    product.price = `$${parseFloat(inputValue).toFixed(2)}`;
+                } else if (fields[index] === 'discount') {
+                    product.discount = `${parseFloat(inputValue)}%`;
+                } else {
+                    product[fields[index]] = parseInt(inputValue);
+                }
+
+                // Re-update the modal content
+                document.getElementById('modalTitle').textContent = `${product.id}`;
+                document.getElementById('modalStock').textContent = `Stock: ${product.stock}`;
+                document.getElementById('modalPrice').textContent = `Price: ${product.price}`;
+                document.getElementById('modalDiscount').textContent = `Discount: ${product.discount}`;
+
+                // Optional: Re-render the entire product list (for simplicity)
+                renderProductList();
+
+                alert(`Product ${product.id} ${fields[index]} updated!`);
+            } else {
+                alert('Product not found!');
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+    document.getElementById('add_product').addEventListener('click', () => {
+        document.getElementById('productModal').classList.remove('hidden-product');
+    });
+
+    document.getElementById('cancelProductBtn').addEventListener('click', () => {
+        document.getElementById('productModal').classList.add('hidden-product');
+    });
+
+    document.getElementById('productForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+
+        // Get sizes
+        const sizes = [];
+        document.querySelectorAll('.size-group').forEach(sizeEl => {
+            const size = sizeEl.querySelector('[name="size"]').value;
+            const price = parseFloat(sizeEl.querySelector('[name="price"]').value);
+            const capital = parseFloat(sizeEl.querySelector('[name="capital"]').value);
+
+            const colors = [];
+            sizeEl.querySelectorAll('.color-group').forEach(colorEl => {
+                const color = colorEl.querySelector('[name="color"]').value;
+                const stock = parseInt(colorEl.querySelector('[name="stock"]').value);
+                colors.push({ color, stock });
+            });
+
+            sizes.push({ size, price, capital, color: colors });
+        });
+
+        data.sizes = sizes;
+
+        console.log("Final Product Data:", data);
+
+        // Close and reset
+        document.getElementById('productModal').classList.add('hidden-product');
+        e.target.reset();
+        document.getElementById('sizesContainer').innerHTML = '<h3>Sizes</h3><button type="button" onclick="addSize()">+ Add Size</button>';
+    });
+
+    function addSize() {
+        const container = document.getElementById('sizesContainer');
+        const index = document.querySelectorAll('.size-group').length;
+
+        const sizeDiv = document.createElement('div');
+        sizeDiv.className = 'size-group';
+        sizeDiv.innerHTML = `
+    <label>Size:
+      <input type="text" name="size" required />
+    </label>
+    <label>Price:
+      <input type="number" name="price" required />
+    </label>
+    <label>Capital:
+      <input type="number" name="capital" required />
+    </label>
+    <div class="colorsContainer">
+      <h4>Colors</h4>
+      <button type="button" onclick="addColor(this)">+ Add Color</button>
+    </div>
+  `;
+        container.appendChild(sizeDiv);
+    }
+
+    function addColor(button) {
+        const container = button.closest('.colorsContainer');
+        const colorDiv = document.createElement('div');
+        colorDiv.className = 'color-group';
+        colorDiv.innerHTML = `
+    <label>Color:
+      <input type="text" name="color" required />
+    </label>
+    <label>Stock:
+      <input type="number" name="stock" required />
+    </label>
+  `;
+        container.appendChild(colorDiv);
+    }
+</script>
+</body>
+</html>

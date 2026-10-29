@@ -1,0 +1,100 @@
+<!-- Announcement Bar -->
+<!-- Header -->
+<div class="announcement-bar">
+  <p class="announcement-text">
+    New here? Sign up and start your travel journey with us.
+    <span style="text-decoration: underline; cursor: pointer">Sign Up Now!</span>
+  </p>
+  <img src="images/X.png" alt="Close" class="close-btn" />
+</div>
+
+<header class="header" id="mainHeader">
+  <div class="logo">All-En</div>
+
+  <nav class="nav">
+    <div class="dropdown">
+      <a href="#" class="nav-item"
+        >Shop <img src="images/shop-dropdown.png" alt="Dropdown"
+      /></a>
+      <div class="dropdown-menu">
+        <a href="luggage-category.php"><h3>Luggage</h3></a>
+
+        <a href="luggage-accessory-category.php"><h3>Luggage Accessories</h3></a>
+
+        <a href="travel-accessory-category.php"><h3>Travel Accessories</h3></a>
+      </div>
+    </div>
+    <a href="#" class="nav-item">On Sale</a>
+    <a href="#" class="nav-item">New Arrivals</a>
+  </nav>
+
+  <div class="search-bar">
+    <img src="images/search.png" alt="Search" />
+    <input
+      type="text"
+      placeholder="Search for products..."
+      class="search-input"
+    />
+  </div>
+  <div class="cart-icons">
+    <img
+      src="images/Cart.png"
+      alt="Wishlist"
+      class="cart-icon"
+      style="cursor: pointer"
+    />
+  </div>
+</header>
+
+<div class="cart-content" id="cartContent">
+  <div class="cart-inner">
+    <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 20px">
+      Your Bag is empty.
+    </h2>
+    <p>
+      <a
+        href="/~D1229568/allen/cart.php"
+        style="color: blue; text-decoration: underline"
+        >Sign in</a
+      >
+      to see if you have any saved items
+    </p>
+    <div style="margin-top: 30px">
+      <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px">
+        My Profile
+      </h3>
+      <ul style="list-style: none; padding-left: 0; line-height: 2">
+        <li>
+          <a
+            href="/~D1229568/allen/cart.php"
+            style="color: black; text-decoration: none"
+            >🧾 Wishlist</a
+          >
+        </li>
+        <li>
+          <a
+            href="/~D1229568/allen/cart.php"
+            style="color: black; text-decoration: none"
+            >👤 History</a
+          >
+        </li>
+        <li>
+          <a
+            href="/~D1229568/allen/cart.php"
+            style="color: black; text-decoration: none"
+            >🔐 Sign in</a
+          >
+        </li>
+
+        <!-- //tambahkan untuk logout apabila ada session -->
+        <li>
+          <a
+            style="color: black; text-decoration: none"
+            name="logout"
+            >🔒 Log out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

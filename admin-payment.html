@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../admin-style.css">
+</head>
+<body>
+<div class="container">
+    <aside>
+
+        <div class="top">
+            <div class="logo">
+                <h2> <span class="danger">All-En</span> </h2>
+            </div>
+            <div class="close" id="close_btn">
+            <span class="material-symbols-sharp">
+              close
+              </span>
+            </div>
+        </div>
+        <!-- end top -->
+        <div class="sidebar">
+
+            <a href="index.html">
+                <span class="material-symbols-sharp">grid_view </span>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="admin-payment.html" class="active">
+                <span class="material-symbols-sharp">credit_card </span>
+                <h3>Payment</h3>
+            </a>
+            <a href="admin-delivery.html">
+                <span class="material-symbols-sharp">local_shipping </span>
+                <h3>Delivery</h3>
+            </a>
+            <a href="admin-product.html">
+                <span class="material-symbols-sharp">shopping_bag </span>
+                <h3>Product</h3>
+            </a>
+            <a href="admin-discount.html">
+                <span class="material-symbols-sharp">percent </span>
+                <h3>Discount_code</h3>
+            </a>
+            <a href="admin-review.html">
+                <span class="material-symbols-sharp">star_rate </span>
+                <h3>Review</h3>
+                <span class="msg_count" id="#">14</span>
+            </a>
+            <a href="admin-warranty.html">
+                <span class="material-symbols-sharp">shield_watch </span>
+                <h3>Warranty</h3>
+            </a>
+            <a href="admin-refund.html">
+                <span class="material-symbols-sharp">money_off </span>
+                <h3>Refund</h3>
+            </a>
+
+            <a href="#.html">
+                <span class="material-symbols-sharp">logout </span>
+                <h3>Log out</h3>
+            </a>
+
+        </div>
+
+    </aside>
+    <!-- --------------
+      end asid
+    -------------------- -->
+
+    <!-- --------------
+      start main part
+    --------------- -->
+
+    <main>
+        <h1>Payment</h1>
+
+        <div class="date">
+            <input type="date" >
+        </div>
+
+        <div class="recent_order">
+            <h2>Orders</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>price</th>
+                    <th>Payment Method</th>
+                    <th>Date</th> <!-- payment method -->
+                    <th>confirmation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>P0001</td>
+                    <td>1000</td>
+                    <td>Taiwan Pay</td>
+                    <td>5/13/2025</td>
+                    <td class="button-confirmation">Confirm</td>
+                </tr>
+                <tr>
+                    <td>P0001</td>
+                    <td>1000</td>
+                    <td>Taiwan Pay</td>
+                    <td>5/13/2025</td>
+                    <td class="button-confirmation">Confirm</td>
+                </tr>
+                <tr>
+                    <td>P0001</td>
+                    <td>1000</td>
+                    <td>Taiwan Pay</td>
+                    <td>5/13/2025</td>
+                    <td class="button-confirmation">Confirm</td>
+                </tr>
+                <tr>
+                    <td>P0001</td>
+                    <td>1000</td>
+                    <td>Taiwan Pay</td>
+                    <td>5/13/2025</td>
+                    <td class="button-confirmation">Confirm</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+    <!------------------
+       end main
+      ------------------->
+
+    <!----------------
+      start right main
+    ---------------------->
+    <div class="right">
+
+        <div class="top">
+            <button id="menu_bar">
+                <span class="material-symbols-sharp">menu</span>
+            </button>
+
+            <div class="theme-toggler">
+                <span class="material-symbols-sharp active">light_mode</span>
+                <span class="material-symbols-sharp">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p><b>Babar</b></p>
+                    <p>Admin</p>
+                    <small class="text-muted"></small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/profile-1.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent_updates">
+            <h2>Recent Update</h2>
+            <div class="updates">
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="../images/profile-4.jpg" alt=""/>
+                    </div>
+                    <div class="message">
+                        <p><b>Babar</b> Recived his order of USB</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="../images/profile-3.jpg" alt=""/>
+                    </div>
+                    <div class="message">
+                        <p><b>Ali</b> Recived his order of USB</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="../images/profile-2.jpg" alt=""/>
+                    </div>
+                    <div class="message">
+                        <p><b>Ramzan</b> Recived his order of USB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="../admin-dashboard.js"></script>
+<script>
+    function handleConfirmationClick(event) {
+        // Example behavior when any "Confirm" cell is clicked
+        const row = event.target.closest('tr'); // get the whole row
+        const orderId = row.querySelector('td').textContent; // get Order ID from first cell
+        alert('Confirmation clicked for Order ID: ' + orderId);
+
+        // Optional: Disable after click
+        event.target.textContent = 'Confirmed';
+        event.target.style.pointerEvents = 'none';
+        event.target.style.opacity = 0.6;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const confirmCells = document.querySelectorAll('.button-confirmation');
+
+        confirmCells.forEach(cell => {
+            cell.style.cursor = "pointer"; // make it look clickable
+            cell.addEventListener('click', handleConfirmationClick);
+        });
+    });
+</script>
+</body>
+</html>

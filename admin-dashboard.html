@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI/UX</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+
+      <div class="top">
+        <div class="logo">
+          <h2> <span class="danger">All-En</span> </h2>
+        </div>
+        <div class="close" id="close_btn">
+          <span class="material-symbols-sharp">
+            close
+          </span>
+        </div>
+      </div>
+      <!-- end top -->
+      <div class="sidebar">
+
+        <a href="index.html" class="active">
+          <span class="material-symbols-sharp">grid_view </span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="admin-payment.html">
+          <span class="material-symbols-sharp">credit_card </span>
+          <h3>Payment</h3>
+        </a>
+        <a href="admin-delivery.html">
+          <span class="material-symbols-sharp">local_shipping </span>
+          <h3>Delivery</h3>
+        </a>
+        <a href="admin-product.html">
+          <span class="material-symbols-sharp">shopping_bag </span>
+          <h3>Product</h3>
+        </a>
+        <a href="admin-discount.html">
+          <span class="material-symbols-sharp">percent </span>
+          <h3>Discount_code</h3>
+        </a>
+        <a href="admin-review.html">
+          <span class="material-symbols-sharp">star_rate </span>
+          <h3>Review</h3>
+          <span class="msg_count" id="#">14</span>
+        </a>
+        <a href="admin-warranty.html">
+          <span class="material-symbols-sharp">shield_watch </span>
+          <h3>Warranty</h3>
+        </a>
+        <a href="admin-refund.html">
+          <span class="material-symbols-sharp">money_off </span>
+          <h3>Refund</h3>
+        </a>
+
+        <a href="#.html">
+          <span class="material-symbols-sharp">logout </span>
+          <h3>Log out</h3>
+        </a>
+
+      </div>
+
+    </aside>
+    <!-- --------------
+    end asid
+  -------------------- -->
+
+    <!-- --------------
+    start main part
+  --------------- -->
+
+    <main>
+      <h1>Dashboard</h1>
+
+      <div class="date">
+        <input type="date">
+      </div>
+
+      <!-- start seling --------------------------------------------------------------------------------------------------------------->
+
+      <!-- SYSTEM MANAGEMENT -->
+      <div class="recent_order">
+        <h2>System Management</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Admin Account Management Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">manage_accounts</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Admin Account Management Report</h3>
+              <h1 id="admin-account-count"></h1>
+              <div id="admin-account-active" style="font-size: 1.2em; color: #4e73df;"></div>
+            </div>
+          </div>
+          <small>Current</small>
+        </div>
+        <!-- Password Update & Reset Activity Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">vpn_key</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Password Update & Reset Activity Report</h3>
+              <h1 id="password-activity-count"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Role-Based Permission Settings Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">admin_panel_settings</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Role-Based Permission Settings Report</h3>
+              <h1 id="role-permission-count"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Discount Code Management Summary Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">percent</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Discount Code Management Summary Report</h3>
+              <h1 id="discount-summary-count"></h1>
+            </div>
+          </div>
+          <small>Available</small>
+        </div>
+      </div>
+
+      <!-- SALES ANALYSIS -->
+      <div class="recent_order">
+        <h2>Sales Analysis</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Sales Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">trending_up</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Sales Report</h3>
+              <h1 id="sales-report-total"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Average Order Value Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">local_mall</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Average Order Value Report</h3>
+              <h1 id="avg-order-value"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Sales by Product Category Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">stacked_line_chart</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Sales by Product Category Report</h3>
+              <h1 id="category-sales"></h1>
+              <canvas id="category-sales-chart" width="120" height="120"></canvas>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+      </div>
+
+      <!-- Customer Analysis -->
+      <div class="recent_order">
+        <h2>Customer Analysis</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Member Account Activity Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">account_circle</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Member Account Activity Report</h3>
+              <h1 id="member-activity-count"></h1>
+            </div>
+          </div>
+          <small>Inactive/Active/Suspended/Banned</small>
+        </div>
+        <!-- Customer Lifetime Value Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">monetization_on</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Customer Lifetime Value Report</h3>
+              <h1 id="customer-ltv"></h1>
+            </div>
+          </div>
+          <small>Most Total Spent of All Time</small>
+        </div>
+        <!-- Customer Refund Summary Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">money_off</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Customer Refund Summary Report</h3>
+              <h1 id="refund-summary"></h1>
+            </div>
+          </div>
+          <small>Requested/Approved/Rejected/Processed/Completed/Cancelled</small>
+        </div>
+        <!-- Product Warranty Claim Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">shield</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Product Warranty Claim Report</h3>
+              <h1 id="warranty-claim"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Customer Location (City) Analysis Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">location_city</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Customer Location (City) Analysis Report</h3>
+              <h1 id="city-analysis"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Customer Rating & Review Trends Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">star_rate</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Customer Rating & Review Trends Report</h3>
+              <h1 id="review-trends"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+      </div>
+
+      <!-- Payment Analysis -->
+      <div class="recent_order">
+        <h2>Payment Analysis</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Payment Method Distribution Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">credit_card</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Payment Method Distribution Report</h3>
+              <canvas id="payment-method-chart" width="120" height="120"></canvas>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Transaction Success Rate Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">check_circle</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Transaction Success Rate Report</h3>
+              <h1 id="transaction-success"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Discount Code Usage & Impact Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">percent</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Discount Code Usage & Impact Report</h3>
+              <h1 id="discount-impact"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+      </div>
+
+      <div class="recent_order">
+        <h2>Product Analysis</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Product Popularity Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">trending_up</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Product Popularity Report</h3>
+              <h1 id="product-popularity"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Up-and-Coming New Product Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">local_mall</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Up-and-Coming New Product Report</h3>
+              <h1 id="new-product"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Highest Profit Product Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">stacked_line_chart</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Highest Profit Product Report</h3>
+              <h1 id="highest-profit"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Lowest Profit Product Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">trending_down</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Lowest Profit Product Report</h3>
+              <h1 id="lowest-profit"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Product Stock & Availability Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">inventory_2</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Product Stock & Availability Report</h3>
+              <h1 id="product-stock"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+      </div>
+
+      <div class="recent_order">
+        <h2>Order Analysis</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Customer Order Management Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">assignment</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Customer Order Management Report</h3>
+              <h1 id="order-management"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+        <!-- Shipment & Tracking Status Report -->
+        <div class="expenses">
+          <span class="material-symbols-sharp">local_shipping</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Shipment & Tracking Status Report</h3>
+              <h1 id="shipment-tracking"></h1>
+            </div>
+          </div>
+          <small>Pending/Processing/Out for Delivery/Delivered</small>
+        </div>
+        <!-- Member-Specific Order Report -->
+        <div class="income">
+          <span class="material-symbols-sharp">person</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Member-Specific Order Report</h3>
+              <h1 id="member-order"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+      </div>
+
+      <!--
+     ADMIN ANALYSIS
+     -->
+
+      <div class="recent_order">
+        <h2>Admin Analysis</h2>
+      </div>
+
+      <div class="insights">
+        <!-- Admin Activity & Performance Report -->
+        <div class="sales">
+          <span class="material-symbols-sharp">trending_up</span>
+          <div class="middle">
+            <div class="left">
+              <h3>Admin Activity & Performance Report</h3>
+              <h1 id="admin-activity"></h1>
+            </div>
+          </div>
+          <small>All Time</small>
+        </div>
+      </div>
+
+      <!-- end insights --------------------------------------------------------------------------------------------------------------------------------------------->
+
+    </main>
+    <!------------------
+     end main
+    ------------------->
+
+    <!----------------
+    start right main
+  ---------------------->
+    <div class="right">
+
+      <div class="top">
+        <button id="menu_bar">
+          <span class="material-symbols-sharp">menu</span>
+        </button>
+
+        <div class="theme-toggler">
+          <span class="material-symbols-sharp active">light_mode</span>
+          <span class="material-symbols-sharp">dark_mode</span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p><b>Babar</b></p>
+            <p>Admin</p>
+            <small class="text-muted"></small>
+          </div>
+          <div class="profile-photo">
+            <img src="images/profile-1.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="recent_updates">
+        <h2>Recent Update</h2>
+        <div class="updates">
+          <div class="update">
+            <div class="profile-photo">
+              <img src="images/profile-4.jpg" alt="" />
+            </div>
+            <div class="message">
+              <p><b>Babar</b> Recived his order of USB</p>
+            </div>
+          </div>
+          <div class="update">
+            <div class="profile-photo">
+              <img src="images/profile-3.jpg" alt="" />
+            </div>
+            <div class="message">
+              <p><b>Ali</b> Recived his order of USB</p>
+            </div>
+          </div>
+          <div class="update">
+            <div class="profile-photo">
+              <img src="images/profile-2.jpg" alt="" />
+            </div>
+            <div class="message">
+              <p><b>Ramzan</b> Recived his order of USB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script>
+      // 定義每個分析區塊對應的 PHP 檔案與元素ID
+      const analysisConfigs = [
+        { url: 'admin-account-report.php', id: 'admin-account-count' },
+        { url: 'admin-product.php', id: 'product-popularity' },
+        { url: 'admin-refund.php?api=status-summary', id: 'refund-summary' },
+        { url: 'admin-review.html', id: 'review-trends' },
+        { url: 'order.php', id: 'avg-order-value' },
+        { url: 'sales-report.php', id: 'sales-report-total' },
+        { url: 'order-management-report.php', id: 'order-management' },
+        { url: 'customer-ltv-report.php', id: 'customer-ltv' },
+        { url: 'member-activity-report.php', id: 'member-activity-count' },
+        { url: 'shipment-tracking-report.php', id: 'shipment-tracking' },
+        { url: 'city-analysis-report.php', id: 'city-analysis' },
+        { url: 'warranty-claim-report.php', id: 'warranty-claim' },
+        // 你可以依需求繼續擴充
+      ];
+
+      // 依序抓取資料並更新畫面
+      analysisConfigs.forEach(cfg => {
+        if (cfg.id === 'discount-summary-count') return; // 避免覆蓋 Discount Code Management Summary Report
+        fetch(cfg.url)
+          .then(res => {
+            if (!res.ok) throw new Error('Network response was not ok');
+            return res.json();
+          })
+          .then(data => {
+            const el = document.getElementById(cfg.id);
+            if (el) {
+              if (data && data.value !== undefined && data.value !== null && data.value !== '') {
+                // Customer Refund Summary Report 顯示總訂單數與金額
+                if (cfg.id === 'refund-summary' && data.labels && data.values) {
+                  el.textContent = data.values.join('/');
+                } else {
+                  if (cfg.id === 'member-activity-count' && typeof data.value === 'string') {
+                    const match = data.value.match(/^\((\d+)\) \(\$(\d+)\)$/);
+                    if (match) {
+                      el.textContent = `${match[1]} (${match[2]} Orders)`;
+                    } else {
+                      el.textContent = data.value;
+                    }
+                  } else {
+                    el.textContent = data.value;
+                  }
+                  if (cfg.id === 'admin-account-count') {
+                    el.textContent = `${data.value} Active Admin${data.value === 1 ? '' : 's'}`;
+                  }
+                  if (cfg.id === 'admin-account-count') {
+                    const activityEl = document.getElementById('admin-activity');
+                    if (activityEl) {
+                      if (data.value <= 1) activityEl.textContent = 'Bad';
+                      else if (data.value <= 4) activityEl.textContent = 'Fine';
+                      else activityEl.textContent = 'Great';
+                    }
+                  }
+                }
+              } else {
+                el.textContent = '-'; // 顯示空值
+              }
+            }
+          })
+          .catch(err => {
+            const el = document.getElementById(cfg.id);
+            if (el) el.textContent = '-'; // 顯示空值
+            // 直接顯示錯誤訊息於 console
+            console.warn('資料載入失敗:', cfg.url, err);
+          });
+      });
+
+      // Payment Method Distribution Pie Chart
+      fetch('admin-payment-method.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.labels && data.values) {
+            const ctx = document.getElementById('payment-method-chart').getContext('2d');
+            new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: data.labels,
+                datasets: [{
+                  data: data.values,
+                  backgroundColor: [
+                    '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796', '#5a5c69'
+                  ],
+                }]
+              },
+              options: {
+                responsive: false,
+                plugins: {
+                  legend: { display: true, position: 'bottom' }
+                }
+              }
+            });
+          }
+        })
+        .catch(err => {
+          console.warn('Payment method chart 載入失敗:', err);
+        });
+
+      // Category Sales Pie Chart
+      fetch('category-sales-report.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.labels && data.values) {
+            const ctx = document.getElementById('category-sales-chart').getContext('2d');
+            new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: data.labels,
+                datasets: [{
+                  data: data.values,
+                  backgroundColor: [
+                    '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796', '#5a5c69'
+                  ],
+                }]
+              },
+              options: {
+                responsive: false,
+                plugins: {
+                  legend: { display: true, position: 'bottom' }
+                }
+              }
+            });
+            // 顯示最高銷售額種類及百分比
+            if (data.topCategory && data.topPercent !== undefined) {
+              const el = document.getElementById('category-sales');
+              if (el) el.textContent = `${data.topCategory} (${data.topPercent}%)`;
+            }
+          }
+        })
+        .catch(err => {
+          console.warn('Category sales chart 載入失敗:', err);
+        });
+
+      // Admin Activity & Performance Report 狀態文字顯示
+      fetch('admin-account-report.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.value !== undefined) {
+            const el = document.getElementById('admin-activity');
+            if (el) {
+              const count = Number(data.value);
+              if (count <= 1) {
+                el.textContent = 'Bad';
+              } else if (count <= 4) {
+                el.textContent = 'Fine';
+              } else {
+                el.textContent = 'Great';
+              }
+            }
+          }
+        })
+        .catch(err => {
+          console.warn('Admin activity 狀態載入失敗:', err);
+        });
+
+      // Fetch and update Discount Code Management Summary Report
+      window.addEventListener('DOMContentLoaded', function() {
+        fetch('admin-discount.php?action=get_discount_count')
+          .then(response => response.json())
+          .then(data => {
+            console.log('Discount count response:', data); // Debugging log
+            if (data.status === 'success') {
+              const discountSummaryElement = document.getElementById('discount-summary-count');
+              if (discountSummaryElement) {
+                discountSummaryElement.textContent = data.value;
+                console.log('Set discount-summary-count:', data.value);
+              }
+            } else {
+              console.warn('Failed to fetch discount count:', data.message);
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching discount count:', error);
+          });
+      });
+    </script>
+</body>
+
+</html>
